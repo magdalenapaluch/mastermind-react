@@ -11,21 +11,19 @@ class ChoicePins extends React.Component {
 	}
 
 	handleColorSelection(passedColor){
-		console.log(passedColor, '2');
-		this.setState({selectedColor: passedColor});
+		this.props.handleColorChange(passedColor);
 	}
 	  
   	render() {
-		const possibleColors = ['red', 'green', 'blue', 'pink', 'brown', 'orange', 'black', 'white']
 		return (
 		<div className="ChoicePins">
 			<div className="gameboard__pins-wrapper">
 				<div className="gameboard__pins">
-					{possibleColors.map((item)=>{
-						return <Pin color={`${item}`} key={`${item}`}  onColorChange={this.handleColorSelection}></Pin>
+					{this.props.possibleColors.map((item)=>{
+						return <Pin color={`${item}`} key={`${item}`} onColorChange={this.handleColorSelection}></Pin>
 					})}
 				</div>
-				<SelectedPin color={`${this.state.selectedColor}`}  onColorChange={this.handleColorSelection}></SelectedPin>
+				<SelectedPin color={`${this.props.selectedColor}`} ></SelectedPin>
 			</div>
 		</div>
     );

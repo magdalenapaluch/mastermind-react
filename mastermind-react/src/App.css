@@ -12,7 +12,9 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
+.gameboard__user-config-slot {
+  cursor: pointer;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -68,7 +70,7 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 100%;
-  background-color: gray;
+  background-color: transparent;
   border: 1px solid black
 }
 
@@ -119,6 +121,13 @@ body {
   width: 100%;
   border-top: 1px solid black;
   align-items: center
+}
+.gameboard__user-config-wrapper.disabled{
+  opacity: .7;
+  pointer-events: none;
+}
+.gameboard__user-config-wrapper.previous{
+  pointer-events: none;
 }
 
 .gameboard__pins {

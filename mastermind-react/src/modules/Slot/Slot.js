@@ -2,14 +2,20 @@ import React from 'react';
 
 class Slot extends React.Component {
 	constructor(props) {
-        super(props);
+		super(props);
+        this.state = {currentColor:null};
+		this.handleClick = this.handleClick.bind(this);
 	}
     handleClick(){
-        console.log('click');
+        this.props.updateUserConfig(this.props.slotNum, this.props.selectedColor)
+		this.setState({currentColor: this.props.selectedColor});
     }
     render() {
         return (
-            <div className="gameboard__user-config-slot" onClick={this.handleClick} data-color=''></div>
+            <div className="gameboard__user-config-slot" 
+            onClick={this.handleClick} 
+            data-color={`${this.state.currentColor}`}>   
+            </div>
         );
     }
 }
