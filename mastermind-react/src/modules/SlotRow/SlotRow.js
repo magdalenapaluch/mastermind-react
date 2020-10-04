@@ -11,6 +11,9 @@ class SlotRow extends React.Component {
   updateUserConfig(num, color){
 	  this.props.updateUserConfig(num,color)
   }
+  // handleResultsChange(results){
+  //   this.props.handleResultsChange(results)
+  // }
 
   render() {
     return (
@@ -22,10 +25,10 @@ class SlotRow extends React.Component {
 	  >
 		  	<div className="gameboard__user-config">
                 {[...Array(4)].map((x, i) =>
-                    <Slot key={i} slotNum={i} selectedColor={this.props.selectedColor} updateUserConfig={this.props.updateUserConfig}></Slot>
+                    <Slot key={i} slotNum={i} rowNum={this.props.rowNum} selectedColor={this.props.selectedColor} updateUserConfig={this.props.updateUserConfig} userConfig={this.props.userConfig}></Slot>
                 )}
             </div>
-            <Check userConfig={this.props.userConfig} onRowChange={this.props.onRowChange} configuration={this.props.configuration}></Check>
+            <Check userConfig={this.props.userConfig} rowNum={this.props.rowNum} currentRow={this.props.currentRow} onRowChange={this.props.onRowChange} configuration={this.props.configuration} handleResultsChange={this.props.handleResultsChange} results={this.props.results}></Check>
       </div>
     );
   }

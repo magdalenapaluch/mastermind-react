@@ -10,7 +10,7 @@ class Results extends React.Component {
     return (
       <>
         {/* { console.log(this.props.results.length)} */}
-        {this.props.colors.map((x, i) => (
+        {/* {this.props.colors.map((x, i) => (
           <div
             className="gameboard__result-slot"
             key={i}
@@ -19,7 +19,7 @@ class Results extends React.Component {
         ))}
         {[...Array(4 - this.props.colors.length)].map((x, i) => (
           <div className="gameboard__result-slot" key={i}></div>
-        ))}
+        ))} */}
       </>
     );
   }
