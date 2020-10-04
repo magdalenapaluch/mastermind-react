@@ -9,6 +9,7 @@ class Boardgame extends React.Component {
 		this.state = {selectedColor:null,currentRow:7, userConfig:[null, null, null, null]};
 		this.possibleColors = ['red', 'green', 'blue', 'pink', 'brown', 'orange', 'black', 'white'] ;
 		this.handleColorState = this.handleColorState.bind(this);
+		this.handleRowchange = this.handleRowchange.bind(this);
 		this.updateUserConfig = this.updateUserConfig.bind(this);
 		this.randomColors = [...this.possibleColors].sort(() => .5 - Math.random()).slice(0,4);
 	}
@@ -16,11 +17,14 @@ class Boardgame extends React.Component {
 	handleColorState(passedColor){
 		this.setState({selectedColor: passedColor});
 	}
+	handleRowchange(){
+		this.setState({currentRow: this.state.currentRow-1});
+		console.log(this.state.currentRow);
+	}
 	updateUserConfig(num, color){
 		let newArray = [...this.state.userConfig];
 		newArray[num] = color;
 		this.setState({userConfig: newArray});
-		console.log(newArray);
 	}
 	
   render() {
@@ -28,7 +32,7 @@ class Boardgame extends React.Component {
       <div className="boardgame">
 		  	<Configuration colors={this.randomColors}></Configuration>
 			{[...Array(8)].map((x, i) =>
-				<SlotRow key={`${i}`} rowNum={i} updateUserConfig={this.updateUserConfig} currentRow={this.state.currentRow} selectedColor={this.state.selectedColor} userConfig={this.state.userConfig} configuration={this.randomColors}></SlotRow>
+				<SlotRow key={`${i}`} rowNum={i} updateUserConfig={this.updateUserConfig} currentRow={this.state.currentRow} selectedColor={this.state.selectedColor} userConfig={this.state.userConfig} configuration={this.randomColors} onRowChange={this.handleRowchange}></SlotRow>
 			)}
           	<ChoicePins handleColorChange={this.handleColorState} possibleColors={this.possibleColors} selectedColor={this.state.selectedColor}></ChoicePins>
       </div>

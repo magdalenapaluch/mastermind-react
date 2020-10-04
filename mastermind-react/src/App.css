@@ -122,6 +122,9 @@ body {
   border-top: 1px solid black;
   align-items: center
 }
+.gameboard__user-config-wrapper.active{
+background-color: burlywood;
+}
 .gameboard__user-config-wrapper.disabled{
   opacity: .7;
   pointer-events: none;
