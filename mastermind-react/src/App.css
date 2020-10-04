@@ -1,0 +1,181 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box
+}
+
+.gameboard {
+  padding: 20px;
+  border: 1px solid black;
+  background-color: palegoldenrod
+}
+
+.gameboard__user-result {
+  display: flex;
+  width: 40px;
+  flex-wrap: wrap
+}
+
+.gameboard__result-slot {
+  margin: 10px 10px 0 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: gray;
+  border: 1px solid black
+}
+
+.gameboard__user-config,
+.gameboard__configuration-wrapper {
+  display: flex;
+  flex: 0 1 70%
+}
+
+.gameboard__user-config-slot,
+.gameboard__configuration-slot {
+  width: 30px;
+  margin-right: 10px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: gray;
+  border: 1px solid black
+}
+
+.active .gameboard__user-config-slot,
+.active .gameboard__configuration-slot {
+  cursor: pointer
+}
+
+.gameboard__configuration-slot.inactive {
+  background-color: gray;
+  position: relative
+}
+
+.gameboard__configuration-slot.inactive::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: '?';
+  color: white;
+  font-size: 30px
+}
+
+.gameboard__user-config-wrapper:not(.active) .gameboard__check {
+  display: none
+}
+
+.gameboard__user-config-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  width: 100%;
+  border-top: 1px solid black;
+  align-items: center
+}
+
+.gameboard__pins {
+  display: flex;
+  align-items: center;
+  flex: 0 0 50%;
+  max-width: 50%;
+  flex-wrap: wrap
+}
+
+.gameboard__pins-wrapper {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid black
+}
+
+.gameboard__pin {
+  cursor: pointer;
+  margin: 10px 10px 10px 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 1px solid black
+}
+
+.gameboard__pin--selected {
+  transition: background-color .2s
+}
+
+[data-color="red"] {
+  background-color: red
+}
+
+[data-color="green"] {
+  background-color: green
+}
+
+[data-color="blue"] {
+  background-color: blue
+}
+
+[data-color="pink"] {
+  background-color: pink
+}
+
+[data-color="brown"] {
+  background-color: brown
+}
+
+[data-color="orange"] {
+  background-color: orange
+}
+
+[data-color="black"] {
+  background-color: black
+}
+
+[data-color="white"] {
+  background-color: white
+}
