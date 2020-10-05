@@ -1,7 +1,6 @@
 
 
 import React from 'react';
-import Pin from '../Pin/Pin.js';
 
 class Configuration extends React.Component {
     
@@ -12,7 +11,7 @@ class Configuration extends React.Component {
         return (
         <div className="gameboard__configuration-wrapper">
             {this.props.colors.map((item)=>{
-				return <div className={`gameboard__pin gameboard__pin--${item}`} key={`${item}`} data-color={`${item}`}></div>
+				return <div className={`gameboard__pin gameboard__pin--${item}`} key={`${item}`}></div>
 			})}
         </div>
         );

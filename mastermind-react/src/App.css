@@ -56,7 +56,7 @@ body {
 .gameboard {
   padding: 20px;
   border: 1px solid black;
-  background-color: palegoldenrod
+  background-color: burlywood
 }
 
 .gameboard__user-result {
@@ -126,7 +126,6 @@ body {
 background-color: burlywood;
 }
 .gameboard__user-config-wrapper.disabled{
-  opacity: .7;
   pointer-events: none;
 }
 .gameboard__user-config-wrapper.previous{

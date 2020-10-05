@@ -23,8 +23,8 @@ class Boardgame extends React.Component {
 		// console.log(this.state.currentRow);
 	}
 	handleResultsChange(results){
-		let newArray = [...this.state.results];
-		newArray = newArray[this.state.currentRow] = results;
+		let newArray = this.state.results;
+		newArray[this.state.currentRow] = results;
 		this.setState({results: newArray});
 		console.log(newArray);
 		
