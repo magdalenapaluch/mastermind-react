@@ -11,7 +11,7 @@ class Configuration extends React.Component {
         return (
         <div className="gameboard__configuration-wrapper">
             {this.props.colors.map((item)=>{
-				return <div className={`gameboard__pin gameboard__pin--${item}`} key={`${item}`}></div>
+				return <div className={`gameboard__pin gameboard__pin--${item.name}`} key={`${item.name}`}></div>
 			})}
         </div>
         );

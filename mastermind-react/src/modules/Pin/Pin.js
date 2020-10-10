@@ -11,7 +11,7 @@ class Pin extends React.Component {
 	  };
     render() {
         return (
-            <div className={`gameboard__pin gameboard__pin--${this.props.color}`} data-color={`${this.props.color}`}  onClick={this.handleColorChange}></div>
+        <div className={`gameboard__pin gameboard__pin--${this.props.color}`} data-color={`${this.props.color}`}  onClick={this.handleColorChange}>{this.props.letter}</div>
         );
     }
 }

@@ -20,7 +20,7 @@ class ChoicePins extends React.Component {
 			<div className="gameboard__pins-wrapper">
 				<div className="gameboard__pins">
 					{this.props.possibleColors.map((item)=>{
-						return <Pin color={`${item}`} key={`${item}`} onColorChange={this.handleColorSelection}></Pin>
+						return <Pin color={item.name} letter={item.letter} key={item.name} onColorChange={this.handleColorSelection}></Pin>
 					})}
 				</div>
 				<SelectedPin color={`${this.props.selectedColor}`} ></SelectedPin>
