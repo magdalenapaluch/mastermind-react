@@ -137,13 +137,13 @@ background-color: burlywood;
   align-items: center;
   flex: 0 0 50%;
   max-width: 50%;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
 
 .gameboard__pins-wrapper {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid black
+  border-top: 1px solid black;
 }
 
 .gameboard__pin {
@@ -152,7 +152,8 @@ background-color: burlywood;
   width: 30px;
   height: 30px;
   border-radius: 100%;
-  border: 1px solid black
+  border: 1px solid black;
+  color: #3BC;
 }
 
 .gameboard__pin--selected {

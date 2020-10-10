@@ -8,11 +8,10 @@ class Check extends React.Component {
   }
 
   handleClick() {
-    // console.log('change');
-    let tempConfig = [...this.props.configuration];
+    let tempConfig = [...this.props.configuration.map(color => color.name)];
     let tempUserConfig = [...this.props.userConfig[this.props.rowNum]];
     let results = [];
-
+console.log(tempConfig, tempUserConfig, this.props.configuration.length);
     this.props.configuration.forEach((item, index) => {
       if (item === this.props.userConfig[this.props.rowNum][index]) {
         results.push("black");
@@ -20,16 +19,20 @@ class Check extends React.Component {
         tempUserConfig[index] = "";
       }
     });
-    tempConfig.forEach((item, index) => {
-      // console.log(tempConfig, tempUserConfig);
-      if (tempUserConfig.includes(item) && item) {
+    let tempConfigSec = [...tempConfig];
+    let tempUserConfigSec = [...tempUserConfig];
+
+    // console.log(tempUserConfig, tempConfig, tempUserConfigSec, tempConfigSec);
+    tempUserConfig.forEach((item, index) => {
+      // console.log(tempUserConfigSec, item, tempUserConfigSec.indexOf(item));
+      if (tempConfigSec.includes(item) && item) {
         results.push("white");
-        tempConfig.splice(index, 1); //remove from user temp
-        tempUserConfig.splice(tempUserConfig.indexOf(item), 1);
+        tempUserConfigSec.splice(index, 1); //remove from user temp
+        tempConfigSec.splice(tempConfigSec.indexOf(item), 1);
       }
     });
     this.props.handleResultsChange(results);
-    if(results === ["black","black","black","black"]){
+    if(results.join('') == "blackblackblackblack"){
       alert('you won');
     }
     this.props.onRowChange();
