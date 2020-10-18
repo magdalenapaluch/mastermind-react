@@ -2,6 +2,7 @@ import React from 'react';
 import ChoicePins from '../ChoicePins/ChoicePins.js';
 import SlotRow from '../SlotRow/SlotRow.js';
 import Configuration from '../Configuration/Configuration.js';
+import StyledBoardgame from './StyledBoardgame.js';
 
 class Boardgame extends React.Component {
 	constructor(props) {
@@ -22,7 +23,16 @@ class Boardgame extends React.Component {
 		this.updateUserConfig = this.updateUserConfig.bind(this);
 		this.handleResultsChange = this.handleResultsChange.bind(this);
 		this.handleKeyPress = this.handleKeyPress.bind(this);
+		this.handleRestart = this.handleRestart.bind(this);
+		this.handleGameOver = this.handleGameOver.bind(this);
 		this.randomColors = [...this.possibleColors].sort(() => .5 - Math.random()).slice(0,4);
+	}
+	handleRestart(){
+		this.setState({selectedColor:null,currentRow:7, userConfig:[[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null]],  results: [[],[], [], [], [], [], [], []]});
+	}
+	handleGameOver(){
+		console.log('loose');
+		
 	}
 	
 	handleColorState(passedColor){
@@ -45,7 +55,7 @@ class Boardgame extends React.Component {
 	}
 
 	handleKeyPress(event){
-		this.handleColorState(this.possibleColors.find(o => o.keyCode === event.keyCode).name);
+		this.handleColorState(this.possibleColors.find(o => o.keyCode === event.keyCode) && this.possibleColors.find(o => o.keyCode === event.keyCode).name);
 
 	  }
 	componentDidMount(){
@@ -54,13 +64,13 @@ class Boardgame extends React.Component {
 	
   render() {
     return (
-      <div className="boardgame">
+      <StyledBoardgame>
 		  	<Configuration colors={this.randomColors}></Configuration>
 			{[...Array(8)].map((x, i) =>
-				<SlotRow key={`${i}`} rowNum={i} updateUserConfig={this.updateUserConfig} currentRow={this.state.currentRow} selectedColor={this.state.selectedColor} userConfig={this.state.userConfig} configuration={this.randomColors} onRowChange={this.handleRowchange} handleResultsChange={this.handleResultsChange}results={this.state.results}></SlotRow>
+				<SlotRow key={`${i}`} rowNum={i} updateUserConfig={this.updateUserConfig} currentRow={this.state.currentRow} selectedColor={this.state.selectedColor} userConfig={this.state.userConfig} configuration={this.randomColors} onRowChange={this.handleRowchange} handleResultsChange={this.handleResultsChange}results={this.state.results} restart={this.handleRestart} loose={this.handleGameOver}></SlotRow>
 			)}
           	<ChoicePins handleColorChange={this.handleColorState} possibleColors={this.possibleColors} selectedColor={this.state.selectedColor}></ChoicePins>
-      </div>
+      </StyledBoardgame>
     );
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import StyledSlot from './StyledSlot.js';
 
 class Slot extends React.Component {
 	constructor(props) {
@@ -10,10 +11,11 @@ class Slot extends React.Component {
     }
     render() {
         return (
-            <div className="gameboard__user-config-slot" 
+            <StyledSlot
+            clickable={this.props.activeState}
             onClick={this.handleClick} 
-            data-color={this.props.userConfig[this.props.rowNum][this.props.slotNum]}>   
-            </div>
+            color={this.props.userConfig[this.props.rowNum][this.props.slotNum]}>   
+            </StyledSlot>
         );
     }
 }

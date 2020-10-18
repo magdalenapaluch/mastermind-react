@@ -1,5 +1,6 @@
 import React from "react";
 import Results from "../Results/Results.js";
+import {Button} from "@material-ui/core";
 
 class Check extends React.Component {
   constructor(props) {
@@ -11,10 +12,9 @@ class Check extends React.Component {
     let tempConfig = [...this.props.configuration.map(color => color.name)];
     let tempUserConfig = [...this.props.userConfig[this.props.rowNum]];
     let results = [];
-console.log(tempConfig, tempUserConfig, this.props.configuration.length);
     this.props.configuration.forEach((item, index) => {
-      console.log(item, index, this.props.userConfig[this.props.rowNum][index], item === this.props.userConfig[this.props.rowNum][index]);
-      if (item === this.props.userConfig[this.props.rowNum][index]) {
+      console.log(item.name, index, this.props.userConfig[this.props.rowNum][index], item === this.props.userConfig[this.props.rowNum][index]);
+      if (item.name === this.props.userConfig[this.props.rowNum][index]) {
         results.push("black");
         tempConfig[index] = ""; //remove from user temp
         tempUserConfig[index] = "";
@@ -23,9 +23,7 @@ console.log(tempConfig, tempUserConfig, this.props.configuration.length);
     let tempConfigSec = [...tempConfig];
     let tempUserConfigSec = [...tempUserConfig];
 
-    // console.log(tempUserConfig, tempConfig, tempUserConfigSec, tempConfigSec);
     tempUserConfig.forEach((item, index) => {
-      // console.log(tempUserConfigSec, item, tempUserConfigSec.indexOf(item));
       if (tempConfigSec.includes(item) && item) {
         results.push("white");
         tempUserConfigSec.splice(index, 1); //remove from user temp
@@ -33,19 +31,23 @@ console.log(tempConfig, tempUserConfig, this.props.configuration.length);
       }
     });
     this.props.handleResultsChange(results);
-    if(results.join('') == "blackblackblackblack"){
+    if(results.join('') === "blackblackblackblack"){
       alert('you won');
+      this.props.restart();
+    }else if(this.props.rowNum===0){
+      this.props.loose();
+    }else{
+      this.props.onRowChange();
     }
-    this.props.onRowChange();
   }
 
   render() {
     return (
       <>
-        {!this.props.userConfig[this.props.rowNum].includes(null) && (
-          <button className="gameboard__check" onClick={this.handleClick}>
+        {!this.props.userConfig[this.props.rowNum].includes(null) && this.props.activeState && (
+          <Button size="small" variant="outlined" color="primary" className="gameboard__check" onClick={this.handleClick}>
             Check
-          </button>
+          </Button>
         )}
         <div className="gameboard__user-result">
           <Results colors={this.props.results[this.props.rowNum]}></Results>

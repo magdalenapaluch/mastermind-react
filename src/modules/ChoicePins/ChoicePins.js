@@ -1,6 +1,7 @@
 import React from 'react';
 import Pin from '../Pin/Pin.js';
 import SelectedPin from '../SelectedPin/SelectedPin.js';
+import {StyledChoicePins, StyledChoicePinsWrapper} from './StyledChoicePins.js';
 
 class ChoicePins extends React.Component {
 
@@ -17,14 +18,14 @@ class ChoicePins extends React.Component {
   	render() {
 		return (
 		<div className="ChoicePins">
-			<div className="gameboard__pins-wrapper">
-				<div className="gameboard__pins">
+			<StyledChoicePinsWrapper>
+				<StyledChoicePins>
 					{this.props.possibleColors.map((item)=>{
 						return <Pin color={item.name} letter={item.letter} key={item.name} onColorChange={this.handleColorSelection}></Pin>
 					})}
-				</div>
+				</StyledChoicePins>
 				<SelectedPin color={`${this.props.selectedColor}`} ></SelectedPin>
-			</div>
+			</StyledChoicePinsWrapper>
 		</div>
     );
   }

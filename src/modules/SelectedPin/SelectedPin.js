@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
+import StyledPin from "../Pin/StyledPin.js";
 
 class SelectedPin extends React.Component {
-  	render() {
+  render() {
     return (
-		<div className="gameboard__pin gameboard__pin--selected" data-color={`${this.props.color}`}></div>
+      <StyledPin
+        className="gameboard__pin gameboard__pin--selected"
+        color={this.props.color}
+      ></StyledPin>
     );
   }
 }

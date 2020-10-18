@@ -1,19 +1,18 @@
 
 
 import React from 'react';
+import StyledSlotRow from "../SlotRow/StyledSlotRow.js";
+import StyledPin from '../Pin/StyledPin.js';
 
 class Configuration extends React.Component {
     
-    constructor(props) {
-        super(props);
-      }
     render() {
         return (
-        <div className="gameboard__configuration-wrapper">
+        <StyledSlotRow padding={true}>
             {this.props.colors.map((item)=>{
-				return <div className={`gameboard__pin gameboard__pin--${item.name}`} key={`${item.name}`}></div>
+				return <StyledPin clickable={false} key={`${item.name}`}></StyledPin>
 			})}
-        </div>
+        </StyledSlotRow>
         );
     }
 }

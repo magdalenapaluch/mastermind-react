@@ -1,24 +1,21 @@
 import React from "react";
+import StyledResults from './StyledResults.js';
+import StyledResultSlot from './StyledResultSlot.js';
 
 class Results extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
-      <>
+      <StyledResults>
+        {/* generate as many as is in the array */}
         {this.props.colors.map((x, i) => (
-          <div
-            className="gameboard__result-slot"
-            key={i}
-            data-color={this.props.colors[i]}
-          ></div>
+          <StyledResultSlot color={this.props.colors[i]} key={i} ></StyledResultSlot>
         ))}
+        {/* generate the rest (the empty ones), so in sum there is four */}
         {[...Array(4 - this.props.colors.length)].map((x, i) => (
-          <div className="gameboard__result-slot" key={i}></div>
+          <StyledResultSlot key={i}></StyledResultSlot>
         ))}
-      </>
+      </StyledResults>
     );
   }
 }
