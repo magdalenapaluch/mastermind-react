@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mastermind-react/static/css/main.7212affb.chunk.css",
+    "main.js": "/mastermind-react/static/js/main.f0dce242.chunk.js",
+    "main.js.map": "/mastermind-react/static/js/main.f0dce242.chunk.js.map",
+    "runtime-main.js": "/mastermind-react/static/js/runtime-main.83e9b60f.js",
+    "runtime-main.js.map": "/mastermind-react/static/js/runtime-main.83e9b60f.js.map",
+    "static/js/2.bc27a23e.chunk.js": "/mastermind-react/static/js/2.bc27a23e.chunk.js",
+    "static/js/2.bc27a23e.chunk.js.map": "/mastermind-react/static/js/2.bc27a23e.chunk.js.map",
+    "index.html": "/mastermind-react/index.html",
+    "precache-manifest.7c219a14cdf733f56c9568a5cbee8c5b.js": "/mastermind-react/precache-manifest.7c219a14cdf733f56c9568a5cbee8c5b.js",
+    "service-worker.js": "/mastermind-react/service-worker.js",
+    "static/css/main.7212affb.chunk.css.map": "/mastermind-react/static/css/main.7212affb.chunk.css.map",
+    "static/js/2.bc27a23e.chunk.js.LICENSE.txt": "/mastermind-react/static/js/2.bc27a23e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.83e9b60f.js",
+    "static/js/2.bc27a23e.chunk.js",
+    "static/css/main.7212affb.chunk.css",
+    "static/js/main.f0dce242.chunk.js"
+  ]
+}
