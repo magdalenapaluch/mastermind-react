@@ -13,7 +13,6 @@ class Check extends React.Component {
     let tempUserConfig = [...this.props.userConfig[this.props.rowNum]];
     let results = [];
     this.props.configuration.forEach((item, index) => {
-      console.log(item.name, index, this.props.userConfig[this.props.rowNum][index], item === this.props.userConfig[this.props.rowNum][index]);
       if (item.name === this.props.userConfig[this.props.rowNum][index]) {
         results.push("black");
         tempConfig[index] = ""; //remove from user temp

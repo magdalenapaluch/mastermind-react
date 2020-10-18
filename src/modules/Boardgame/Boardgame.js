@@ -31,8 +31,8 @@ class Boardgame extends React.Component {
 		this.setState({selectedColor:null,currentRow:7, userConfig:[[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null],[null, null, null, null]],  results: [[],[], [], [], [], [], [], []]});
 	}
 	handleGameOver(){
-		console.log('loose');
-		
+		alert(`you lost, correct combination was: ${this.randomColors.map(color => color.name).join(' ')}`);
+		this.handleRestart();
 	}
 	
 	handleColorState(passedColor){
@@ -42,7 +42,6 @@ class Boardgame extends React.Component {
 		this.setState({currentRow: this.state.currentRow-1});
 	}
 	handleResultsChange(results){
-		console.log(results);
 		let newArray = this.state.results;
 		newArray[this.state.currentRow] = results;
 		this.setState({results: newArray});
